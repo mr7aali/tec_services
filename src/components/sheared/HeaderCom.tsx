@@ -4,6 +4,7 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeaderCom = () => {
   return (
@@ -91,14 +92,14 @@ const HeaderTop = () => {
           <span className="mx-5 w-[1px] h-[20px] bg-[#ccc]"></span>
           <div className="flex justify-between items-center ">
             <p className="m-2 ">
-              <span className="p-2 text-[11px] text-[#000] font-bold cursor-pointer hover:text-[#007aff]">
+              <Link href={'/auth/login'} className="p-2 text-[11px] text-[#000] font-bold cursor-pointer hover:text-[#007aff]">
                 <span className="text-[15px]">
                   <UserAddOutlined /> 
                 </span>{" "}
                  Sign In
-              </span>
+              </Link>
               <span className="text-[11px] font-bold mx-2">/</span>
-              <span className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"> Register</span>
+              <Link href={"/auth/singup"} className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"> Register</Link>
             </p>
           </div>
         </div>
