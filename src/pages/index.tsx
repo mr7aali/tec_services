@@ -1,4 +1,4 @@
-import HeaderCom from "@/components/sheared/Header";
+import HeaderCom from "@/components/sheared/HeaderCom";
 const HomePage = () => {
   return (
     <div>

@@ -1,4 +1,8 @@
-import { UserAddOutlined, PhoneOutlined } from "@ant-design/icons";
+import {
+  UserAddOutlined,
+  PhoneOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 import Image from "next/image";
 
 const HeaderCom = () => {
@@ -7,8 +11,6 @@ const HeaderCom = () => {
       <HeaderTop />
       <div className="w-[1400px] mx-auto flex ">
         <div className=" flex items-center flex-1">
-
-          
           <div
             style={{
               padding: "0",
@@ -23,11 +25,20 @@ const HeaderCom = () => {
               height={128}
             />
           </div>
-          <div className="flex-1">
-            <input type="text" className="w-full" />
+
+          <div
+            style={{ border: "1px solid #eee" }}
+            className="flex flex-1 mx-[70px]"
+          >
+            <input
+              type="text"
+              className="w-full p-[10px] border-none outline-none "
+              placeholder="Search here..."
+            />
+            <button className="ml-[-5px] border-none cursor-pointer px-[15px] text-2xl">
+              <SearchOutlined />{" "}
+            </button>
           </div>
-
-
         </div>
 
         <div className="flex items-center">
@@ -35,23 +46,25 @@ const HeaderCom = () => {
             <PhoneOutlined className="text-[32px] text-[#000] mr-2" />
             <span className="">
               <p>Email or:</p>
-              <p className="font-[700] text-[#000] font-sans">01967519057</p>
+              <p className="font-[700] text-[#000] font-sans hover:text-[#007aff] cursor-pointer">
+                01967519057
+              </p>
             </span>
           </div>
 
           <span className="mx-5 w-[1px] h-[20px] bg-[#ccc]"></span>
 
           <div className=" flex">
-            <span className="px-2 flex  flex-col items-center justify-center">
-              <UserAddOutlined className="text-[32px] text-[#000]" />
+            <span className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
+              <UserAddOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer" />
               <small className="text-[13px]">Wishlist</small>
             </span>
-            <span className="px-2 flex  flex-col items-center justify-center">
-              <UserAddOutlined className="text-[32px] text-[#000]" />
+            <span className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
+              <UserAddOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer" />
               <small className="text-[13px]">Wishlist</small>
             </span>
-            <span className="px-2 flex  flex-col items-center justify-center">
-              <UserAddOutlined className="text-[32px] text-[#000]" />
+            <span className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
+              <UserAddOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer" />
               <small className="text-[13px]">Wishlist</small>
             </span>
           </div>
@@ -78,16 +91,14 @@ const HeaderTop = () => {
           <span className="mx-5 w-[1px] h-[20px] bg-[#ccc]"></span>
           <div className="flex justify-between items-center ">
             <p className="m-2 ">
-              <span>
-                {" "}
-                <UserAddOutlined />
-              </span>
-
-              <span className="p-2 text-[11px] text-[#000] font-bold">
-                Sign In
+              <span className="p-2 text-[11px] text-[#000] font-bold cursor-pointer hover:text-[#007aff]">
+                <span className="text-[15px]">
+                  <UserAddOutlined /> 
+                </span>{" "}
+                 Sign In
               </span>
               <span className="text-[11px] font-bold mx-2">/</span>
-              <span className="text-[11px] font-bold"> Register</span>
+              <span className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"> Register</span>
             </p>
           </div>
         </div>
