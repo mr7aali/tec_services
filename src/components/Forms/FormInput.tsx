@@ -1,6 +1,5 @@
-"use client";
+
 import { IInput } from "@/interface/type";
-import { Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
 
 const FormInput = ({
@@ -27,8 +26,7 @@ const FormInput = ({
          
             <input
               type={type || "text"}
-              // size={size}
-              className="w-[90%] px-4 py-3 rounded-lg mb-4 bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+              className="w-[90%] px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
               placeholder={placeholder || " sdf"}
               {...field}
               value={value ? value : field.value}

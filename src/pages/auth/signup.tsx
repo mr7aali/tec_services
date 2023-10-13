@@ -1,14 +1,23 @@
+import Form from "@/components/Forms/Form";
+import FormInput from "@/components/Forms/FormInput";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Divider from "@/components/PageComponents/LoginAndRegisterPage/Divider";
 import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/GoogleLoginButton";
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
-import Image from "next/image";
-import Link from "next/link";
-
+import { SubmitHandler } from "react-hook-form";
+type FormValues = {
+  id: string;
+  password: string;
+};
 /* eslint-disable react/no-unescaped-entities */
 export default function SignInPage() {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
+    try {
+      console.log(data);
+    } catch (error) {}
+  };
   return (
     <>
       <section className="border-red-500 bg-gray-200 py-20 flex items-center justify-center">
@@ -22,60 +31,36 @@ export default function SignInPage() {
               If you have not an account, please login
             </p>
 
-            <form className="mt-6" action="#" method="POST">
+            <Form submitHandler={onSubmit}>
               <div>
-                <label className="block text-gray-700 font-semibold text-[15px]">
-                  Name
-                </label>
-                <input
+                <FormInput
+                  name="username"
                   type="text"
                   id=""
+                  label="Name"
                   placeholder="Enter Your Name"
-                  className="w-[90%] px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                  autoFocus
-                  required
                 />
               </div>
 
               <div className="mt-4">
-                <label className="block text-gray-700 font-semibold text-[15px]">
-                  Email Address
-                </label>
-                <input
+                <FormInput
+                  name="username"
                   type="email"
                   id=""
-                  placeholder="Enter Email Address"
-                  className="w-[90%] block px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-                  autoFocus
-                  // autoComplete
-                  required
+                  label="Name"
+                  placeholder="Enter Your Email"
                 />
               </div>
 
               <div className="mt-4">
-                <label className="block text-gray-700 font-semibold text-[15px]">
-                  Password
-                </label>
-                <input
+                <FormInput
                   type="password"
                   id=""
                   placeholder="Enter Password"
-                  minLength={6}
-                  className="w-[90%] px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
-                  focus:bg-white focus:outline-none"
-                  required
+                  name="password"
+                  label="Password"
                 />
               </div>
-
-              <div className="text-right mt-2">
-                <a
-                  href="#"
-                  className="text-sm font-semibold text-gray-700 hover:text-blue-700 focus:text-blue-700"
-                >
-                  {/* Forgot Password? */}
-                </a>
-              </div>
-
               <button
                 type="submit"
                 className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
@@ -83,10 +68,10 @@ export default function SignInPage() {
               >
                 Sign Up
               </button>
-            </form>
+            </Form>
             <Divider />
             <GoogleLoginButton />
-            <RedirectUserButton path="/auth/login" />
+            <RedirectUserButton path="/auth/login" buttonValue={"Log In"} />
           </div>
 
           <SideImageContainer ImageUrl={LoginPageImage} />

@@ -6,7 +6,6 @@ import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
-import Image from "next/image";
 import { SubmitHandler } from "react-hook-form";
 
 /* eslint-disable react/no-unescaped-entities */
@@ -19,9 +18,7 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     try {
       console.log(data);
-    } catch (error) {
-      // console.log(error);
-    }
+    } catch (error) {}
   };
   return (
     <div
@@ -40,22 +37,30 @@ const LoginPage = () => {
               If you have an account, please login
             </p>
 
+            
+
             <Form submitHandler={onSubmit}>
               <div>
                 <FormInput
-                  label="Email Address"
-                  placeholder="email"
-                  name="id"
+                  name="username"
                   type="text"
-                  size="large"
+                  id=""
+                  label="Name"
+                  placeholder="Enter Your Name"
                 />
+              </div>
+
+             
+
+              <div className="mt-4">
                 <FormInput
+                  type="password"
+                  id=""
+                  placeholder="Enter Password"
+                  name="password"
                   label="Password"
-                  name="idd"
-                  type="text"
-                  size="large"
-                  placeholder="pass"
                 />
+
               </div>
               <div className="text-right mt-2">
                 <a
@@ -66,26 +71,19 @@ const LoginPage = () => {
                 </a>
               </div>
               <button
-                style={{ border: "1px solid red" }}
                 type="submit"
-                className="cursor-pointer w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
-           px-4 py-3 mt-6"
+                className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+                px-4 py-3 mt-6"
               >
-                Log In
+                Sign Up
               </button>
             </Form>
             <Divider />
             <GoogleLoginButton />
-            {/* <div className="text-sm flex justify-between items-center mt-3">
-              <small className="text-sm mt-4 text-[#002D74] font-semibold text-[12px]">
-                If you don't have an account...
-              </small>
-              <button className="cursor-pointer py-2 px-5 ml-3 bg-white border rounded-xl hover:scale-110 duration-300 border-blue-400  ">
-                Register
-              </button>
-            </div> */}
-            <RedirectUserButton path="/auth/signup" />
+            <RedirectUserButton path="/auth/signup"  buttonValue="Sign Up"/>
           </div>
+
+
         </div>
       </section>
     </div>

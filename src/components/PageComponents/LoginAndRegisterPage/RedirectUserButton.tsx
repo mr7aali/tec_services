@@ -1,7 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
 
-const RedirectUserButton = ({ path }: { path: string }) => {
+const RedirectUserButton = ({
+  path,
+  buttonValue,
+}: {
+  path: string;
+  buttonValue: string;
+}) => {
   return (
     <div className="text-sm flex justify-between items-center mt-3">
       <small className="text-sm mt-4  text-[#002D74] font-semibold text-[12px]">
@@ -11,7 +17,7 @@ const RedirectUserButton = ({ path }: { path: string }) => {
         href={path}
         className="py-2 no-underline text-[#000] font-serif px-5 ml-3 bg-white border rounded-xl hover:scale-110 duration-300 border-blue-400  "
       >
-        Sign In
+        {buttonValue}
       </Link>
     </div>
   );
