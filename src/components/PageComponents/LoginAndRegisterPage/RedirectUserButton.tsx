@@ -9,13 +9,13 @@ const RedirectUserButton = ({
   buttonValue: string;
 }) => {
   return (
-    <div className="text-sm flex justify-between items-center mt-3">
+    <div className="text-sm flex justify-between items-center mt-3 ">
       <small className="text-sm mt-4  text-[#002D74] font-semibold text-[12px]">
         If you don't have an account...
       </small>
       <Link
         href={path}
-        className="py-2 no-underline text-[#000] font-serif px-5 ml-3 bg-white border rounded-xl hover:scale-110 duration-300 border-blue-400  "
+        className="py-2 cursor-pointer no-underline text-[#000] font-serif px-5 ml-3 bg-white border rounded-xl hover:scale-110 duration-300 border-blue-400  "
       >
         {buttonValue}
       </Link>

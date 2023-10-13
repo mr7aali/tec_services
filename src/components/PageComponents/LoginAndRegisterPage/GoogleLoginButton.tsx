@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoogleLoginButton = () => {
     return (
-        <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 ">
+        <button className="bg-white border cursor-pointer py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xlinkHref="http://www.w3.org/1999/xlink"

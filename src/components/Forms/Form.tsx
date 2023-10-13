@@ -1,5 +1,3 @@
-"use client"
-import { type } from "os";
 import { ReactElement, ReactNode } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
@@ -22,6 +20,7 @@ const Form = ({ children, submitHandler, defaultValues }: FormProps) => {
   const { handleSubmit, reset } = methods;
   const onSubmit = (data: any) => {
     submitHandler(data);
+    console.log(data);
     // reset();
   };
 

@@ -63,7 +63,7 @@ export default function SignInPage() {
               </div>
               <button
                 type="submit"
-                className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+                className="w-full cursor-pointer block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
               >
                 Sign Up
