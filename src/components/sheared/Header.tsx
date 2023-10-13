@@ -4,7 +4,50 @@ const HeaderCom = () => {
   return (
     <>
       <HeaderTop />
-      <div></div>
+      <div className="w-[1400px] mx-auto flex ">
+        <div className="flex-1 flex items-center">
+          <div className="">
+            <img
+              src="https://images.othoba.com/images/thumbs/0194842.png"
+              alt=""
+            />
+          </div>
+          <div className=" ">
+          
+            {/* // {/* //WishListContainer */}
+            <input type="text" />
+          </div>
+        </div>
+
+        <div className="flex items-center  ">
+          <div className="flex items-center">
+         
+            {/* //EmailContaner */}
+            <UserAddOutlined />
+            <span  className="">
+              <p>Email or:</p>
+              <span className="font-[700] text-[#000] font-sans">01967519057</span>
+            </span>
+          </div>
+          <span className="mx-5 w-[1px] h-[20px] bg-[#ccc]"></span>
+          <div className=" flex">
+            {" "}
+            {/* //WishListContainer */}
+            <span className="px-2 flex  flex-col items-center justify-center">
+              <UserAddOutlined className="text-[32px] text-[#000]" />
+              <small className="text-[13px]">Wishlist</small>
+            </span>
+            <span className="px-2 flex  flex-col items-center justify-center">
+              <UserAddOutlined className="text-[32px] text-[#000]" />
+              <small className="text-[13px]">Wishlist</small>
+            </span>
+            <span className="px-2 flex  flex-col items-center justify-center">
+              <UserAddOutlined className="text-[32px] text-[#000]" />
+              <small className="text-[13px]">Wishlist</small>
+            </span>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

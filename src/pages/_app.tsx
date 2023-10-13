@@ -1,10 +1,10 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
-import { Roboto_Slab} from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const roboto = Roboto_Slab({
-  weight: ['200'],
+const roboto = Poppins({
+  weight: ["200"],
   subsets: ["latin"],
 });
 
