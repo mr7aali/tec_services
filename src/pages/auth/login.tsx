@@ -40,14 +40,14 @@ const LoginPage = () => {
             
 
             <Form submitHandler={onSubmit}>
-              <div>
+              <div className="" >
                 <FormInput
                   name="username"
                   type="text"
                   id=""
                   label="Name"
                   placeholder="Enter Your Name"
-                />
+                />           
               </div>
 
              

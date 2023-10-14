@@ -1,4 +1,3 @@
-
 import { IInput } from "@/interface/type";
 import { Input } from "antd";
 import { Controller, useFormContext } from "react-hook-form";
@@ -21,19 +20,16 @@ const FormInput = ({
       </label>
 
       <Controller
-        control={control }
+        control={control}
         name={name}
         render={({ field }) => (
-         
-            <input
-              type={type }
-              className="w-[90%] px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
-              placeholder={placeholder}
-              {...field}
-              value={value ? value : field.value || ""}
-              
-            />
-         
+          <input
+            type={type}
+            className="w-[90%] px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+            placeholder={placeholder}
+            {...field}
+            value={value ? value : field.value || ""}
+          />
         )}
       />
     </>

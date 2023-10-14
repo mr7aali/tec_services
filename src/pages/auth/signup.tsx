@@ -44,7 +44,7 @@ export default function SignInPage() {
 
               <div className="mt-4">
                 <FormInput
-                  name="username"
+                  name="email"
                   type="email"
                   id=""
                   label="Name"
