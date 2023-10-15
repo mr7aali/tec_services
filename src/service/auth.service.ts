@@ -2,7 +2,6 @@ import jwtDecode from 'jwt-decode';
 import { getFromLocalStorage, setToLocalStorage } from "@/utlis/local-storage"
 
 export const storeUserInfo = (accessToken: string) => {
-
     setToLocalStorage('accessToken', accessToken);
 }
 
@@ -19,5 +18,6 @@ export const getUserInfo = () => {
 
 export const isLoggedIn = () => {
     const authToken = getFromLocalStorage('accessToken');
-    return !!authToken;
+  
+    return authToken;
 }

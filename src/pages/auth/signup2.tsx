@@ -4,21 +4,33 @@ import RootLayouts from "@/components/Layouts/RootLayouts";
 import Divider from "@/components/PageComponents/LoginAndRegisterPage/Divider";
 import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/GoogleLoginButton";
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
+import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
+import { isLoggedIn } from "@/service/auth.service";
 import Image from "next/image";
+import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
 
-
-
-
 type FormValues = {
-  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
   password: string;
+  role?: string;
+  phone: string;
+  address: string;
+  profileimage?: string;
 };
 /* eslint-disable react/no-unescaped-entities */
 export default function SignInPage() {
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const router: NextRouter = useRouter();
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      console.log(data);
+
+      localStorage.removeItem('accessToken');
+      const result = await AuthHelpers.RegisterUser(data);
+      if (isLoggedIn()) {
+        router.push("/");
+      }
     } catch (error) {}
   };
   return (
@@ -113,10 +125,6 @@ export default function SignInPage() {
                     />
                   </div>
                 </div>
-
-               
-
-           
 
                 <button
                   type="submit"

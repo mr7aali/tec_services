@@ -6,11 +6,10 @@ import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
+import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
 import { getUserInfo, isLoggedIn, storeUserInfo } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
-
-
 
 type FormValues = {
   id: string;
@@ -19,24 +18,20 @@ type FormValues = {
 };
 
 const LoginPage = () => {
-  const router:NextRouter = useRouter();
- 
+  const router: NextRouter = useRouter();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      console.log(data);
-      const res = await fetch("http://localhost:5000/api/v1/auth/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: data.email, password: data.password }),
+      
+      localStorage.removeItem("accessToken");
+      const restult = await AuthHelpers.loginUser({
+        email: data.email,
+        password: data.password,
       });
-      const loginData = await res.json();
-      if (loginData.token) {
-        // router.push("/user/profile");
+     
+      if ( !(isLoggedIn() ==="undefined")) {
+        router.push("/");
       }
-      storeUserInfo(loginData.token);
     } catch (error) {}
   };
 
@@ -50,8 +45,6 @@ const LoginPage = () => {
         <div className="bg-gray-100 p-5 flex items-center rounded-lg shadow-lg max-w-4xl">
           <SideImageContainer ImageUrl={LoginPageImage} />
           <div className="md:w-1/2 px-5 py-0 ">
-
-            
             <h2 className="text-3xl font-bold text-[#002D74] font-sans">
               Login
             </h2>

@@ -8,6 +8,7 @@ import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
 import { SubmitHandler } from "react-hook-form";
+
 type FormValues = {
   id: string;
   password: string;
