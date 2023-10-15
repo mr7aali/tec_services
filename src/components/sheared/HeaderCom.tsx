@@ -99,7 +99,7 @@ const HeaderTop = () => {
                  Sign In
               </Link>
               <span className="text-[11px] font-bold mx-2">/</span>
-              <Link href={"/auth/singup"} className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"> Register</Link>
+              <Link href={"/auth/signup2"} className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"> Register</Link>
             </p>
           </div>
         </div>

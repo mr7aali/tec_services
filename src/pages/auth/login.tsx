@@ -6,20 +6,40 @@ import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
+import { getUserInfo, isLoggedIn, storeUserInfo } from "@/service/auth.service";
+import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
 
-/* eslint-disable react/no-unescaped-entities */
+
 
 type FormValues = {
   id: string;
   password: string;
+  email: string;
 };
+
 const LoginPage = () => {
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
+  const router:NextRouter = useRouter();
+ 
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       console.log(data);
+      const res = await fetch("http://localhost:5000/api/v1/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: data.email, password: data.password }),
+      });
+      const loginData = await res.json();
+      if (loginData.token) {
+        // router.push("/user/profile");
+      }
+      storeUserInfo(loginData.token);
     } catch (error) {}
   };
+
   return (
     <div
       style={{
@@ -30,6 +50,8 @@ const LoginPage = () => {
         <div className="bg-gray-100 p-5 flex items-center rounded-lg shadow-lg max-w-4xl">
           <SideImageContainer ImageUrl={LoginPageImage} />
           <div className="md:w-1/2 px-5 py-0 ">
+
+            
             <h2 className="text-3xl font-bold text-[#002D74] font-sans">
               Login
             </h2>
@@ -37,20 +59,16 @@ const LoginPage = () => {
               If you have an account, please login
             </p>
 
-            
-
             <Form submitHandler={onSubmit}>
-              <div className="" >
+              <div className="">
                 <FormInput
-                  name="username"
+                  name="email"
                   type="text"
                   id=""
                   label="Name"
                   placeholder="Enter Your Name"
-                />           
+                />
               </div>
-
-             
 
               <div className="mt-4">
                 <FormInput
@@ -60,8 +78,8 @@ const LoginPage = () => {
                   name="password"
                   label="Password"
                 />
-
               </div>
+
               <div className="text-right mt-2">
                 <a
                   href="#"
@@ -72,7 +90,7 @@ const LoginPage = () => {
               </div>
               <button
                 type="submit"
-                className="w-full block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
+                className="w-full cursor-pointer block bg-blue-500 hover:bg-blue-400 focus:bg-blue-400 text-white font-semibold rounded-lg
                 px-4 py-3 mt-6"
               >
                 Sign Up
@@ -80,10 +98,8 @@ const LoginPage = () => {
             </Form>
             <Divider />
             <GoogleLoginButton />
-            <RedirectUserButton path="/auth/signup"  buttonValue="Sign Up"/>
+            <RedirectUserButton path="/auth/signup2" buttonValue="Sign Up" />
           </div>
-
-
         </div>
       </section>
     </div>

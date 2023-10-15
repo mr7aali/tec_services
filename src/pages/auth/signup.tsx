@@ -1,4 +1,5 @@
-import Form from "@/components/Forms/Form";
+
+import ReactForm from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import Divider from "@/components/PageComponents/LoginAndRegisterPage/Divider";
@@ -11,7 +12,7 @@ type FormValues = {
   id: string;
   password: string;
 };
-/* eslint-disable react/no-unescaped-entities */
+
 export default function SignInPage() {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     try {
@@ -31,7 +32,7 @@ export default function SignInPage() {
               If you have not an account, please login
             </p>
 
-            <Form submitHandler={onSubmit}>
+            <ReactForm submitHandler={onSubmit}>
               <div>
                 <FormInput
                   name="username"
@@ -68,7 +69,7 @@ export default function SignInPage() {
               >
                 Sign Up
               </button>
-            </Form>
+            </ReactForm>
             <Divider />
             <GoogleLoginButton />
             <RedirectUserButton path="/auth/login" buttonValue={"Log In"} />
