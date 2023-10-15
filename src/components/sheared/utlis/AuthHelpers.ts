@@ -38,7 +38,11 @@ const RegisterUser = async (user_data:IUserRegister) => {
         body: JSON.stringify(user_data),
     });
     const data = await res.json();
-    const loginResult = await loginUser({ email:user_data.email, password :user_data.password});
+    
+
+    if(data.success){
+        const loginResult = await loginUser({ email:user_data.email, password :user_data.password});
+    }
     
 
 }

@@ -22,14 +22,15 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      
-      localStorage.removeItem("accessToken");
+      // localStorage.removeItem("accessToken");
       const restult = await AuthHelpers.loginUser({
         email: data.email,
         password: data.password,
       });
-     
-      if ( !(isLoggedIn() ==="undefined")) {
+
+      const isLogged = isLoggedIn();
+      console.log(isLogged);
+      if (isLogged) {
         router.push("/");
       }
     } catch (error) {}

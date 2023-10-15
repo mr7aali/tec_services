@@ -18,6 +18,8 @@ export const getUserInfo = () => {
 
 export const isLoggedIn = () => {
     const authToken = getFromLocalStorage('accessToken');
-  
-    return authToken;
+    if (authToken === "undefined" || null) {
+        return false;
+    }
+    return !!authToken;
 }

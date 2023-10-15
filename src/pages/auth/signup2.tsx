@@ -25,10 +25,12 @@ export default function SignInPage() {
   const router: NextRouter = useRouter();
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-
-      localStorage.removeItem('accessToken');
+      localStorage.removeItem("accessToken");
+      console.log(data);
       const result = await AuthHelpers.RegisterUser(data);
-      if (isLoggedIn()) {
+
+      const isLogged = isLoggedIn();
+      if (isLogged) {
         router.push("/");
       }
     } catch (error) {}
