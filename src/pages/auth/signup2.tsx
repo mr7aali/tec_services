@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import RootLayouts from "@/components/Layouts/RootLayouts";
@@ -6,7 +7,6 @@ import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
 import { isLoggedIn } from "@/service/auth.service";
-import Image from "next/image";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
 

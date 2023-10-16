@@ -27,7 +27,11 @@ const loginUser = async ({ email, password }: { email: string, password: string 
     //     router.push("/user/profile");
     // }
     storeUserInfo(loginData.token);
-}
+};
+
+
+
+
 const RegisterUser = async (user_data:IUserRegister) => {
 
     const res = await fetch("http://localhost:5000/api/v1/user/signup", {

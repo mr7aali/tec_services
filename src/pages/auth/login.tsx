@@ -7,7 +7,7 @@ import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
 import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
-import { getUserInfo, isLoggedIn, storeUserInfo } from "@/service/auth.service";
+import { isLoggedIn } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
 

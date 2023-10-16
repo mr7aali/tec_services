@@ -2,6 +2,7 @@ import {
   UserAddOutlined,
   PhoneOutlined,
   SearchOutlined,
+  InboxOutlined,
 } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,10 +57,11 @@ const HeaderCom = () => {
           <span className="mx-5 w-[1px] h-[20px] bg-[#ccc]"></span>
 
           <div className=" flex">
-            <span className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
-              <UserAddOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer" />
-              <small className="text-[13px]">Wishlist</small>
-            </span>
+            <Link href={"/dashbord"} className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
+            <InboxOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer"  />
+              
+              <small className="text-[13px]">Dashboard</small>
+            </Link>
             <span className="px-2 flex  flex-col items-center justify-center hover:text-[#007aff] cursor-pointer">
               <UserAddOutlined className="text-[32px] text-[#000] hover:text-[#007aff] cursor-pointer" />
               <small className="text-[13px]">Wishlist</small>
