@@ -9,7 +9,7 @@
     /* box-sizing: border-box; */
 }
 .test{
-    /* border: 1px solid red ; */
+    border: 1px solid red ;
     width: 100% !important;
 
 }
@@ -59,7 +59,7 @@
 
   .el-wrapper {
     border:1 px solid red;
-    width: 280px;
+    width: 250px;
     padding: 15px;
     margin: 15px auto;
     background-color: #f7f7f7;

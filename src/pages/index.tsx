@@ -2,7 +2,9 @@ import ServiceCard from "@/components/Card/ServiceCard";
 import TestCard from "@/components/Card/TestCard";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
+import FloatButtonT from "@/components/ui/FloatButton";
 import { IResponseType, IService } from "@/interface/type";
+
 import { GetStaticProps } from "next";
 const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
   
@@ -16,13 +18,12 @@ const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
       <h2 className="mt-5 text-center text-5xl">Available Service</h2>
       <div className="grid grid-cols-3 my-24">
         {data?.data?.map((s) => (
-          <div key={s.service_id} className="mx-auto">
-            <ServiceCard />
+          <div  key={s.service_id} className="mx-auto">
+            <ServiceCard  service={s}/>
           </div>
         ))}
-
-        <TestCard/>
       </div>
+      <FloatButtonT/>
     </div>
   );
 };

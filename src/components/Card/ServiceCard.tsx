@@ -1,37 +1,24 @@
 import Image from "next/image";
-// import { AiFillStar } from "react-icons/ai";
 import { motion } from "framer-motion";
-
-import { Divider } from "antd";
-import { useEffect, useState } from "react";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { useState } from "react";
 import Link from "next/link";
-const ProductCard = () => {
+import { IService } from "@/interface/type";
+const ServiceCard = ({service}:{service:IService}) => {
   const [isHovered, setIsHovered] = useState(false);
 
+
+  console.log(service);
   return (
-    <div
-      style={
-        {
-          // border:'1px solid red'
-        }
-      }
-      className="relative"
-    >
+    <div className="relative">
       <motion.div
-        // whileHover={()=>setStyle("d")}
         style={{ border: "1px solid #e5e7eb" }}
-        className="max-w-sm rounded overflow-hidden shadow-lg relative"
+        className="max-w-sm rounded overflow-hidden  shadow-lg relative"
       >
         <div className="flex justify-center items-center">
           <Image
-            // className="mx-auto"
             src="https://www.startech.com.bd/image/cache/catalog/monitor/msi/mp223/mp223-06-500x500.webp"
-            // src={  "https://i.ibb.co/GWhm1ZP/back-school-red-blue-background.jpg"}
-            // src={data.image}
-            width={350}
-            height={300}
-            // style={{border:'1px solid red'}}
+            width={250}
+            height={200}
             alt=""
           />
         </div>
@@ -59,7 +46,7 @@ const ProductCard = () => {
             data.price $
           </span>
         </div>
-        <span className="inline-block absolute top-1 right-0 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+        <span className="inline-block absolute top-5 right-0 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           data.status
         </span>
       </motion.div>
@@ -76,9 +63,9 @@ const ProductCard = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="page-wrapper">
-          <div  className="page-inner">
-            <div  className="row flex justify-center items-center">
-              <div   className="el-wrapper w-full shadow-lg  relative cursor-pointer">
+          <div className="page-inner">
+            <div className="row flex justify-center items-center">
+              <div className="el-wrapper w-full shadow-lg  relative cursor-pointer">
                 <div className="box-down">
                   <div className="h-bg">
                     <div className="h-bg-inner"></div>
@@ -100,4 +87,4 @@ const ProductCard = () => {
   );
 };
 
-export default ProductCard;
+export default ServiceCard;

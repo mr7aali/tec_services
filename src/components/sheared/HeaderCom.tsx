@@ -12,7 +12,8 @@ const HeaderCom = () => {
   return (
     <>
       <HeaderTop />
-      <div className="w-[1400px] mx-auto flex ">
+      <div style={{position:"sticky"}}>
+      <div   className="w-[1400px] mx-auto flex ">
         <div className=" flex items-center flex-1">
           <Link
             href={"/"}
@@ -23,7 +24,7 @@ const HeaderCom = () => {
             }}
           >
             <Image
-              style={{ border: "1px solid red" }}
+            
               src="https://images.othoba.com/images/thumbs/0194842.png"
               alt=""
               width={128}
@@ -78,6 +79,7 @@ const HeaderCom = () => {
             </span>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
