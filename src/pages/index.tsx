@@ -3,6 +3,7 @@ import TestCard from "@/components/Card/TestCard";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
 import FloatButtonT from "@/components/ui/FloatButton";
+import TemporaryDrawer from "@/components/ui/TemporaryDrawer";
 import { IResponseType, IService } from "@/interface/type";
 
 import { GetStaticProps } from "next";
@@ -14,8 +15,8 @@ const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
         title={"Othoba home"}
         descriptionContent={"Tech products home page"}
       />
-
       <h2 className="mt-5 text-center text-5xl">Available Service</h2>
+   
       <div className="grid grid-cols-3 my-24">
         {data?.data?.map((s) => (
           <div  key={s.service_id} className="mx-auto">
@@ -23,7 +24,8 @@ const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
           </div>
         ))}
       </div>
-      <FloatButtonT/>
+     
+      
     </div>
   );
 };
