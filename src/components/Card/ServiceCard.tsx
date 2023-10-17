@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { IService } from "@/interface/type";
-const ServiceCard = ({service}:{service:IService}) => { //
+const ServiceCard = () => { //{service}:{service:IService}
   const [isHovered, setIsHovered] = useState(false);
 
 
@@ -24,7 +24,7 @@ const ServiceCard = ({service}:{service:IService}) => { //
         </div>
 
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2"> {service.service_name}</div>
+          <div className="font-bold text-xl mb-2"> service.service_name</div>
           <p className="text-gray-700 text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Voluptatibus quia, nulla! Maiores et perferendis eaque,
@@ -45,7 +45,7 @@ const ServiceCard = ({service}:{service:IService}) => { //
           </span>
 
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          {service.price} $
+          service.price $
           </span>
         </div>
         <span className="inline-block absolute top-5 right-0 bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">

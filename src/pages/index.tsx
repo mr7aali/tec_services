@@ -6,9 +6,7 @@ import TemporaryDrawer from "@/components/ui/TemporaryDrawer";
 import { IResponseType, IService } from "@/interface/type";
 
 import { GetStaticProps } from "next";
-const HomePage = ({
-  data
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {//{ data }: { data: IResponseType<IService[]> }
+const HomePage = () => {//{ data }: { data: IResponseType<IService[]> }
   //
   // console.log(data);
   return (
@@ -20,12 +18,15 @@ const HomePage = ({
       <h2 className="mt-5 text-center text-5xl">Available Service</h2>
 
       <div className="grid grid-cols-3 my-24">
-        {data?.data?.map((s:IService) => (
-        <div key={s.service_id} className="mx-auto">
-          <ServiceCard service={s}/>
+        {/* {data?.data?.map((s:IService) => ( */}
+        <div
+        //  key={s.service_id}
+          className="mx-auto">
+          <ServiceCard />
+          {/* //service={s} */}
         </div>
-          ))
-          }
+          {/* ))  */}
+          {/* } */}
       </div>
      <div> <TemporaryDrawer/></div>
     </div>
@@ -45,17 +46,17 @@ type Repo = {
   stargazers_count: number
 }
  
-export const getServerSideProps = (async (context) => {
-  // const BaseUrl = process.env.BASE_URL;
-  // const url = `${BaseUrl}/service/get`;
+// export const getServerSideProps = (async (context) => {
+//   // const BaseUrl = process.env.BASE_URL;
+//   // const url = `${BaseUrl}/service/get`;
 
-  const res = await fetch("http://localhost:5000/api/v1/service/get")
-  const data = await res.json()
+//   const res = await fetch("http://localhost:5000/api/v1/service/get")
+//   const data = await res.json()
 
-  return { props: { data } }
-}) satisfies GetServerSideProps<{
-  data: Repo
-}>
+//   return { props: { data } }
+// }) satisfies GetServerSideProps<{
+//   data: Repo
+// }>
 
 
 
