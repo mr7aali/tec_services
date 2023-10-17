@@ -29,7 +29,7 @@ const LoginPage = () => {
       });
 
       const isLogged = isLoggedIn();
-      console.log(isLogged);
+   
       if (isLogged) {
         router.push("/");
       }

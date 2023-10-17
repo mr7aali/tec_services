@@ -2,14 +2,13 @@ import Image from "next/image";
 // import { AiFillStar } from "react-icons/ai";
 import { motion } from "framer-motion";
 
-
 import { Divider } from "antd";
 import { useEffect, useState } from "react";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+import Link from "next/link";
 const ProductCard = () => {
   const [isHovered, setIsHovered] = useState(false);
- console.log(isHovered);
-   
- 
+
   return (
     <div
       style={
@@ -17,10 +16,10 @@ const ProductCard = () => {
           // border:'1px solid red'
         }
       }
-      className="relative "
+      className="relative"
     >
       <motion.div
-      // whileHover={()=>setStyle("d")}
+        // whileHover={()=>setStyle("d")}
         style={{ border: "1px solid #e5e7eb" }}
         className="max-w-sm rounded overflow-hidden shadow-lg relative"
       >
@@ -66,12 +65,37 @@ const ProductCard = () => {
       </motion.div>
 
       <motion.div
-       className= {`${isHovered  ?"absolute top-0  w-full h-full  cursor-pointer backdrop-blur-md":"absolute top-0  w-full h-full  cursor-pointer "} `}
-      onMouseEnter={() => setIsHovered(true)}
-      animate={{ opacity: isHovered ? 1 : 0 }} // Animation state
-      transition={{ duration: 0.1 }} 
-      onMouseLeave={() => setIsHovered(false)}
-      ></motion.div>
+        className={`${
+          isHovered
+            ? "absolute top-0  w-full h-full backdrop-blur-md"
+            : "absolute top-0  w-full h-full"
+        }`}
+        onMouseEnter={() => setIsHovered(true)}
+        animate={{ opacity: isHovered ? 1 : 0 }} // Animation state
+        transition={{ duration: 0.1 }}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="page-wrapper">
+          <div  className="page-inner">
+            <div  className="row flex justify-center items-center">
+              <div   className="el-wrapper w-full shadow-lg  relative cursor-pointer">
+                <div className="box-down">
+                  <div className="h-bg">
+                    <div className="h-bg-inner"></div>
+                  </div>
+
+                  <Link href={"/"} className="cart">
+                    <span className="price">$ resalePrice</span>
+                    <span className="add-to-cart">
+                      <span className="txt">Add in cart</span>
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };

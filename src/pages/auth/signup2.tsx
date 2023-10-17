@@ -26,7 +26,7 @@ export default function SignInPage() {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       localStorage.removeItem("accessToken");
-      console.log(data);
+      
       const result = await AuthHelpers.RegisterUser(data);
 
       const isLogged = isLoggedIn();

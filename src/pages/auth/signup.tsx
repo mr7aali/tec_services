@@ -17,7 +17,7 @@ type FormValues = {
 export default function SignInPage() {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     try {
-      console.log(data);
+      
     } catch (error) {}
   };
   return (

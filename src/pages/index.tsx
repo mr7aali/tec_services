@@ -1,10 +1,11 @@
 import ServiceCard from "@/components/Card/ServiceCard";
+import TestCard from "@/components/Card/TestCard";
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
 import { IResponseType, IService } from "@/interface/type";
 import { GetStaticProps } from "next";
 const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
-  console.log(data.statusCode);
+  
   return (
     <div className="container mx-auto">
       <HeadTag
@@ -19,6 +20,8 @@ const HomePage = ({ data }: { data: IResponseType<IService[]> }) => {
             <ServiceCard />
           </div>
         ))}
+
+        <TestCard/>
       </div>
     </div>
   );
