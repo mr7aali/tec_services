@@ -12,6 +12,8 @@ export type IInput = {
   validate?: object;
   label?: string
 };
+
+
 export type IService = {
   service_id: string;
 
@@ -27,3 +29,4 @@ export type IResponseType<T> = {
   message: string,
   data: T
 }
+
