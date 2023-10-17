@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { IService } from "@/interface/type";
-const ServiceCard = ({service}:{service:IService}) => {
+const ServiceCard = () => { //{service}:{service:IService}
   const [isHovered, setIsHovered] = useState(false);
 
 
-  console.log(service);
+  // console.log(service);
   return (
     <div className="relative">
       <motion.div
