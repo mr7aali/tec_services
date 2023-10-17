@@ -1,14 +1,20 @@
 import ServiceCard from "@/components/Card/ServiceCard";
-
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
-import TemporaryDrawer from "@/components/ui/TemporaryDrawer";
+
+import SideDrawer from "@/components/ui/SideDrawer";
+
 import { IService } from "@/interface/type";
 import { useState, useEffect } from "react";
+
 const HomePage = () => {
   //{ service }: { service: IResponseType<IService[]> }
   const [data, setData] = useState([]);
-  console.log(data);
+  const [DrawerData, setDrawerData] = useState([]);
+  
+  
+ 
+
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("http://localhost:5000/api/v1/service/get");
@@ -30,14 +36,15 @@ const HomePage = () => {
       <div className="grid grid-cols-3 my-24">
         {data.map((s: IService) => (
           <div key={s.service_id} className="mx-auto">
-            <ServiceCard />
+            <ServiceCard service={s} DrawerData={DrawerData} setDrawerData={setDrawerData}/>
           </div>
         ))}
       </div>
       <div>
-        {" "}
-        <TemporaryDrawer />
+       
+        <SideDrawer DrawerData={DrawerData} />
       </div>
+      
     </div>
   );
 };

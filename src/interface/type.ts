@@ -46,12 +46,14 @@ export type IAdmin = {
 
 export type IService = {
   service_id: string;
-
   service_name: string;
   category: string;
   description: string;
   price: string;
   availability: string;
+
+  Review:IReview[]
+
 }
 
 export type IBooking = {
@@ -75,8 +77,8 @@ export type IReview = {
   reviewdate: string;
 
 
-  user: string;
-  service: string;
+  user?: string;
+  service?: string;
 }
 
 

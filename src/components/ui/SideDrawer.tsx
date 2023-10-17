@@ -1,17 +1,24 @@
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import FloatButtonT from "./FloatButton";
+// import FloatButtonT from "./FloatButton";
 import Image from "next/image";
+import { IService } from "@/interface/type";
+import AddToCartButton from "./FloatButton";
+import { TotalPrice } from "./utils/utils";
 
 
-export default function TemporaryDrawer() {
+export default function SideDrawer({DrawerData}:{DrawerData:IService[]}) {
+
+  
   const [state, setState] = React.useState({
     top: false,
     left: false,
     bottom: false,
     right: false,
   });
+
+  
   type Anchor = "top" | "left" | "bottom" | "right";
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -31,16 +38,16 @@ export default function TemporaryDrawer() {
 
   const priceOfArry = 0;
   const quantity = 0;
-  const subTotal = 0;
+  const subTotal = TotalPrice(DrawerData);
   const sum_auantity = 0;
-  const Delivary_Charge = 0;
-
+  const Delivary_Charge = 60;
+console.log(subTotal);
   return (
     <div>
       {(["right"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <span onClick={toggleDrawer(anchor, true)}>
-            <FloatButtonT />
+            <AddToCartButton  count={Number(DrawerData.length)}/>
           </span>
 
           <Drawer
@@ -50,9 +57,9 @@ export default function TemporaryDrawer() {
           >
             <p className="text-[#000] mt-6 ml-5 text-[25px]">Shopping Bag</p>
 
-            {/* {sortedCart?.map((m) => ( */}
+            {DrawerData?.map((service) => (
 
-            <div className="w-[350px] mt-2">
+            <div key={service.service_id} className="w-[350px] mt-2">
               <div
                 style={{ borderTop: "1px solid black" }}
                 className="p-3 m-2 flex items-center"
@@ -74,19 +81,20 @@ export default function TemporaryDrawer() {
                 </div>
                 <div className="w-[150px] ml-2">
                   <span className="overflow-hidden text-[15px] font-bold">
-                    m.name
+                   {service.service_name}
                   </span>
-                  <p className="text-[#000] text-[13px]">m.condition</p>
+                  <p className="text-[#000] text-[13px]"> {service.availability} </p>
                 </div>
                 <div className="ml-1 font-semibold">
                   {" "}
-                  $m.resalePrice <div></div>{" "}
-                  <span className="flex justify-end">X m.quantity</span>{" "}
+                  $ {service.price}
+                   <div></div>{" "}
+                  <span className="flex justify-end">X 1</span>{" "}
                 </div>
               </div>
             </div>
 
-            {/* ))} */}
+             ))} 
 
             <div className="w-full mt-12">
               <div className="bg-[#f7dcdc] p-3 text-xl mx-3">

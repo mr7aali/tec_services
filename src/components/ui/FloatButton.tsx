@@ -1,10 +1,10 @@
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";
 
-const FloatButtonT: React.FC = () => (
+const AddToCartButton= ({count}:{count:number}) => (
   <>
     <FloatButton
-      badge={{ count: 6, overflowCount: 999 }}
+      badge={{ count, overflowCount: 999 }}
       shape="square"
       style={{
         height: "60px",
@@ -27,4 +27,4 @@ const FloatButtonT: React.FC = () => (
   </>
 );
 
-export default FloatButtonT;
+export default AddToCartButton;
