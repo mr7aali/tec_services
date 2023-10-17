@@ -7,7 +7,7 @@ const ServiceCard = ({service}:{service:IService}) => { //
   const [isHovered, setIsHovered] = useState(false);
 
 
-  console.log(service);
+  // console.log(service);
   return (
     <div className="relative">
       <motion.div
@@ -38,7 +38,7 @@ const ServiceCard = ({service}:{service:IService}) => { //
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
             <div className="flex items-center justify-center">
               <p className="mr-1">
-                data.averageRating
+              avgRating
                 </p>
               {/* <AiFillStar /> */}
             </div>
