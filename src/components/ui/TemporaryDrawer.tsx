@@ -48,7 +48,7 @@ export default function TemporaryDrawer() {
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
-            <h1 className="text-[#000] mt-6 ml-5 text-[25px]">Shopping Bag</h1>
+            <p className="text-[#000] mt-6 ml-5 text-[25px]">Shopping Bag</p>
 
             {/* {sortedCart?.map((m) => ( */}
 
@@ -67,15 +67,15 @@ export default function TemporaryDrawer() {
                   <Image
                     src="https://images.othoba.com/images/thumbs/0194842.png"
                     alt=""
-                    layout="responsive" 
+                    // layout="responsive" 
                     width={100} 
                     height={50} 
                   />
                 </div>
                 <div className="w-[150px] ml-2">
-                  <h1 className="overflow-hidden text-[15px] font-bold">
+                  <span className="overflow-hidden text-[15px] font-bold">
                     m.name
-                  </h1>
+                  </span>
                   <p className="text-[#000] text-[13px]">m.condition</p>
                 </div>
                 <div className="ml-1 font-semibold">
@@ -90,30 +90,30 @@ export default function TemporaryDrawer() {
 
             <div className="w-full mt-12">
               <div className="bg-[#f7dcdc] p-3 text-xl mx-3">
-                <h1 className="text-center font-bold">Cart Totals</h1>
+                <p className="text-center font-bold">Cart Totals</p>
               </div>
               <div className="flex px-5 mt-2 justify-between">
-                <h1 className="font-medium">Sub Totals</h1>
+                <p className="font-medium">Sub Totals</p>
                 <p className="font-medium">${subTotal}</p>
               </div>
               <div className="flex px-5 mt-2 justify-between">
-                <h1 className="font-medium">Delivary Charge</h1>
+                <p className="font-medium">Delivary Charge</p>
                 <p className="font-medium">$ {Delivary_Charge}</p>
               </div>
               <div className="flex px-5 mt-2 justify-between">
-                <h1 className="font-medium">Total</h1>
+                <p className="font-medium">Total</p>
                 <p className="font-medium">${subTotal + Delivary_Charge}</p>
               </div>
               <div className="bg-[#13AFF0] mt-5 p-3 text-lg mx-3">
-                <h1 className="text-center text-[#fff] ">
+                <p className="text-center text-[#fff] ">
                   Proceed To Checkout
-                </h1>
+                </p>
               </div>
             </div>
 
             <div className="w-[350px] ">
               <h1 className="flex items-center flex-col  mt-96 text-xl text-[#000]">
-                <h1>ICON</h1>
+                <p>ICON</p>
                 <p className="text-xl mt-3">Empty</p>
               </h1>
             </div>

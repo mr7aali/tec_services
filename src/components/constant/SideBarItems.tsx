@@ -10,11 +10,11 @@ export const SideBarItems = (role: string) => {
       children: [
         {
           label: "Account profile",
-          key: "profile",
+          key: "Account-profile",
         },
         {
           label: "Change Password",
-          key: "change pass",
+          key: "change-pass",
         },
       ],
       label: "Profile",
