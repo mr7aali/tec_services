@@ -2,7 +2,6 @@ import ServiceCard from "@/components/Card/ServiceCard";
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import RootLayouts from "@/components/Layouts/RootLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
-
 import TemporaryDrawer from "@/components/ui/TemporaryDrawer";
 import { IResponseType, IService } from "@/interface/type";
 
@@ -47,20 +46,18 @@ type Repo = {
 }
  
 export const getServerSideProps = (async (context) => {
-  const BaseUrl = process.env.BASE_URL;
-  const url = `${BaseUrl}/service/get`;
+  // const BaseUrl = process.env.BASE_URL;
+  // const url = `${BaseUrl}/service/get`;
 
-  const res = await fetch(url)
+  const res = await fetch("http://localhost:5000/api/v1/service/get")
   const data = await res.json()
-  // console.log(data);
+
   return { props: { data } }
 }) satisfies GetServerSideProps<{
   data: Repo
 }>
 
-// export default function Page({
-//   repo,
-// }: InferGetServerSidePropsType<typeof getServerSideProps>) 
+
 
 
 //layout
