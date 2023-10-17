@@ -27,9 +27,7 @@ export default function TemporaryDrawer() {
       setState({ ...state, [anchor]: open });
     };
 
-  // const cart = useSelector((s) => s.product.cart);
-  // const dispatch = useDispatch();
-  // const sortedCart = shortedWithId(cart);
+
 
   const priceOfArry = 0;
   const quantity = 0;
@@ -41,9 +39,9 @@ export default function TemporaryDrawer() {
     <div>
       {(["right"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>
+          <span onClick={toggleDrawer(anchor, true)}>
             <FloatButtonT />
-          </Button>
+          </span>
 
           <Drawer
             anchor={anchor}

@@ -7,7 +7,6 @@ const RootLayouts = ({ children }: { children: React.ReactNode }) => {
     <div>
       <HeaderCom/>
       {children}
-      <TemporaryDrawer/>
       <Footer/>
     </div>
   );

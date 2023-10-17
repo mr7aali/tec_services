@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { IService } from "@/interface/type";
-const ServiceCard = () => { //{service}:{service:IService}
+const ServiceCard = ({service}:{service:IService}) => { //
   const [isHovered, setIsHovered] = useState(false);
 
 
-  // console.log(service);
+  console.log(service);
   return (
     <div className="relative">
       <motion.div
@@ -58,7 +58,7 @@ const ServiceCard = () => { //{service}:{service:IService}
             : "absolute top-0  w-full h-full"
         }`}
         onMouseEnter={() => setIsHovered(true)}
-        animate={{ opacity: isHovered ? 1 : 0 }} // Animation state
+        animate={{ opacity: isHovered ? 1 : 0 }} 
         transition={{ duration: 0.1 }}
         onMouseLeave={() => setIsHovered(false)}
       >
