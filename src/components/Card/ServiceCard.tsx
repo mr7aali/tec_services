@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import { IService } from "@/interface/type";
-import {  StarFilled, StarOutlined } from "@ant-design/icons";
-import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { Button, Modal } from 'antd';
+import { StarFilled, StarOutlined } from "@ant-design/icons";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
+import { Button, Modal } from "antd";
 import { dividerClasses } from "@mui/material";
+import { isLoggedIn } from "@/service/auth.service";
+import { NextRouter, useRouter } from "next/router";
 
 const { confirm } = Modal;
 
 const destroyAll = () => {
   Modal.destroyAll();
 };
-
-
 
 const ServiceCard = ({
   service,
@@ -25,7 +25,7 @@ const ServiceCard = ({
   setDrawerData: any;
   DrawerData: IService[];
 }) => {
- 
+  const router: NextRouter = useRouter();
   //{service}:{service:IService}
   const [isHovered, setIsHovered] = useState(false);
   const totalRating = service.Review.reduce(
@@ -35,23 +35,42 @@ const ServiceCard = ({
   const total_review = service.Review.length;
   const rating = Number(totalRating / total_review) || 0;
 
-
   const AddToDrawer = (data: IService) => {
-    
+    const isLogin = isLoggedIn();
 
-
-    if(DrawerData.includes(service)){
+    if (!isLogin) {
       confirm({
         // icon: <ExclamationCircleOutlined />,
-        content: <Button>You have already add This Service!</Button>
-        
+        content: (
+          <Button style={{ font: "red" }}>You need to login first !</Button>
+        ),
+        onOk() {
+          router.push("/auth/login");
+          return 0;
+        },
+        onCancel() {
+          // router.push("/auth/login");
+          return 0;
+        },
+      });
+    }
+   
+
+    
+    if (DrawerData.includes(service)) {
+      confirm({
+        icon: <ExclamationCircleOutlined />,
+        content: <Button>You have already add This Service!</Button>,
       });
       return;
     }
-    const result = [...DrawerData, service];
-    setDrawerData(result);
+    console.log("add");
+    if (!DrawerData.includes(service) && isLogin) {
+      console.log(DrawerData.includes(service), isLogin);
+      const result = [...DrawerData, service];
+      setDrawerData(result);
+    }
   };
-
 
   return (
     <>

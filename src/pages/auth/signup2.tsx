@@ -30,14 +30,9 @@ export default function SignInPage() {
       localStorage.removeItem("accessToken");
       // const result = await AuthHelpers.RegisterUser(data);
       //
-      const res = await fetch("http://localhost:5000/api/v1/user/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    });
-    const r_data = await res.json();
+
+
+     
 
 
       //

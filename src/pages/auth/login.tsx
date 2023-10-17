@@ -25,23 +25,11 @@ const LoginPage = () => {
 
 
     
-      // const restult = await AuthHelpers.loginUser({
-      //   email: data.email,
-      //   password: data.password,
-      // });
+      const restult = await AuthHelpers.loginUser({
+        email: data.email,
+        password: data.password,
+      });
 
-      const res = await fetch("http://localhost:5000/api/v1/auth/signin", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email:data.email, password:data.password }),
-    });
-    const loginData = await res.json();
-    // if (loginData.token) {
-    //     router.push("/user/profile");
-    // }
-    storeUserInfo(loginData.token);
 
 
 
