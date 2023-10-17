@@ -22,12 +22,25 @@ type FormValues = {
 };
 /* eslint-disable react/no-unescaped-entities */
 export default function SignInPage() {
+
+
   const router: NextRouter = useRouter();
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       localStorage.removeItem("accessToken");
-      
-      const result = await AuthHelpers.RegisterUser(data);
+      // const result = await AuthHelpers.RegisterUser(data);
+      //
+      const res = await fetch("http://localhost:5000/api/v1/user/signup", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    });
+    const r_data = await res.json();
+
+
+      //
 
       const isLogged = isLoggedIn();
       if (isLogged) {
@@ -35,6 +48,8 @@ export default function SignInPage() {
       }
     } catch (error) {}
   };
+
+
   return (
     <>
       <section className="border-red-500 bg-gray-200 py-20 flex items-center justify-center">

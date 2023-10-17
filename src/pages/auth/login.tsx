@@ -7,7 +7,7 @@ import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
 import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
-import { isLoggedIn } from "@/service/auth.service";
+import { isLoggedIn, storeUserInfo } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
 
@@ -22,11 +22,28 @@ const LoginPage = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      // localStorage.removeItem("accessToken");
-      const restult = await AuthHelpers.loginUser({
-        email: data.email,
-        password: data.password,
-      });
+
+
+    
+      // const restult = await AuthHelpers.loginUser({
+      //   email: data.email,
+      //   password: data.password,
+      // });
+
+      const res = await fetch("http://localhost:5000/api/v1/auth/signin", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email:data.email, password:data.password }),
+    });
+    const loginData = await res.json();
+    // if (loginData.token) {
+    //     router.push("/user/profile");
+    // }
+    storeUserInfo(loginData.token);
+
+
 
       const isLogged = isLoggedIn();
    
