@@ -9,7 +9,8 @@ import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
 import { isLoggedIn } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
-
+import { useUserSignUpMutation } from "@/helpers/axios/authApi";
+import { toast } from "react-toastify";
 type FormValues = {
   first_name: string;
   last_name: string;
@@ -22,25 +23,28 @@ type FormValues = {
 };
 /* eslint-disable react/no-unescaped-entities */
 export default function SignInPage() {
-
+  const [userSignUp]=  useUserSignUpMutation()
 
   const router: NextRouter = useRouter();
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      localStorage.removeItem("accessToken");
+      // localStorage.removeItem("accessToken");
       // const result = await AuthHelpers.RegisterUser(data);
       //
+  const result = await userSignUp(data).unwrap();
+  if (result.success) {
+    router.push("/auth/login");
+    toast.success("User created successfully!");
+  }
 
-
-     
 
 
       //
 
-      const isLogged = isLoggedIn();
-      if (isLogged) {
-        router.push("/");
-      }
+      // const isLogged = isLoggedIn();
+      // if (isLogged) {
+      //   router.push("/");
+      // }
     } catch (error) {}
   };
 

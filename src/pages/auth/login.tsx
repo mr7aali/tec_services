@@ -6,10 +6,12 @@ import GoogleLoginButton from "@/components/PageComponents/LoginAndRegisterPage/
 import RedirectUserButton from "@/components/PageComponents/LoginAndRegisterPage/RedirectUserButton";
 import SideImageContainer from "@/components/PageComponents/LoginAndRegisterPage/SideImageContainer";
 import { LoginPageImage } from "@/components/constant/constant";
-import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
+
+import { useUserLoginMutation } from "@/helpers/axios/authApi";
 import { isLoggedIn, storeUserInfo } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
+import { toast } from "react-toastify";
 
 type FormValues = {
   id: string;
@@ -19,22 +21,24 @@ type FormValues = {
 
 const LoginPage = () => {
   const router: NextRouter = useRouter();
+  const [userLogin] = useUserLoginMutation();
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-
-
-    
-      const restult = await AuthHelpers.loginUser({
+      const resData = await userLogin({
         email: data.email,
         password: data.password,
-      });
+      }).unwrap();
 
-
-
+      
+   
+      if (resData.success) {
+        storeUserInfo(resData.token);
+        toast.success("logged in successfully!");
+      }
 
       const isLogged = isLoggedIn();
-   
+
       if (isLogged) {
         router.push("/");
       }
@@ -97,7 +101,7 @@ const LoginPage = () => {
             </Form>
             <Divider />
             <GoogleLoginButton />
-            <RedirectUserButton path="/auth/signup2" buttonValue="Sign Up" />
+            <RedirectUserButton path="/auth/signup" buttonValue="Sign Up" />
           </div>
         </div>
       </section>

@@ -41,7 +41,7 @@ export default function SideDrawer({DrawerData}:{DrawerData:IService[]}) {
   const subTotal = TotalPrice(DrawerData);
   const sum_auantity = 0;
   const Delivary_Charge = 60;
-console.log(subTotal);
+
   return (
     <div>
       {(["right"] as const).map((anchor) => (

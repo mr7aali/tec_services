@@ -27,7 +27,7 @@ export const HeaderTop = () => {
               </Link>
               <span className="text-[11px] font-bold mx-2">/</span>
               <Link
-                href={"/auth/signup2"}
+                href={"/auth/signup"}
                 className="text-[11px] font-bold hover:text-[#007aff] cursor-pointer"
               >
                 {" "}

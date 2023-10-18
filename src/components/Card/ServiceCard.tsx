@@ -64,9 +64,9 @@ const ServiceCard = ({
       });
       return;
     }
-    console.log("add");
+    
     if (!DrawerData.includes(service) && isLogin) {
-      console.log(DrawerData.includes(service), isLogin);
+     
       const result = [...DrawerData, service];
       setDrawerData(result);
     }
