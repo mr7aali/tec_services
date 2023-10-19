@@ -9,7 +9,7 @@ import { AuthHelpers } from "@/components/sheared/utlis/AuthHelpers";
 import { isLoggedIn } from "@/service/auth.service";
 import { NextRouter, useRouter } from "next/router";
 import { SubmitHandler } from "react-hook-form";
-import { useUserSignUpMutation } from "@/helpers/axios/authApi";
+import { useUserSignUpMutation } from "@/redux/api/authApi";
 import { toast } from "react-toastify";
 type FormValues = {
   first_name: string;

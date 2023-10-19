@@ -24,4 +24,4 @@ export const extendedApi = baseApi.injectEndpoints({
   }),
 })
 
-export const { useUserLoginMutation, useUserSignUpMutation } = extendedApi
+export const { useUserLoginMutation, useUserSignUpMutation } = extendedApi;
