@@ -101,7 +101,7 @@ const LoginPage = () => {
               </button>
             </Form>
             <Divider />
-            <GoogleLoginButton />
+            {/* <GoogleLoginButton /> */}
             <RedirectUserButton path="/auth/signup" buttonValue="Sign Up" />
           </div>
         </div>

@@ -156,7 +156,7 @@ export default function SignInPage() {
               <Divider />
             </div>
             <div className="mx-5">
-              <GoogleLoginButton />
+              {/* <GoogleLoginButton /> */}
             </div>
 
             <div className="mx-5">
