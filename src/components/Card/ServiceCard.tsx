@@ -74,7 +74,7 @@ const ServiceCard = ({
 
   return (
     <>
-      <div className="relative">
+      <div className="relative my-2">
         <motion.div
           style={{ border: "1px solid #e5e7eb" }}
           className="max-w-sm rounded overflow-hidden  shadow-lg relative"
