@@ -11,9 +11,7 @@ import { useState, useEffect } from "react";
 
 const HomePage = () => {
 
-  const [data1, setData] = useState([]);
   const [DrawerData, setDrawerData] = useState([]);
-
   const { data, error, isLoading } = useGetServiceQuery(undefined);
 
 
@@ -39,7 +37,7 @@ const HomePage = () => {
         ))}
       </div>
       <div>
-        <SideDrawer DrawerData={DrawerData} />
+        <SideDrawer DrawerData={DrawerData}  setDrawerData={setDrawerData} />
       </div>
     </div>
   );
