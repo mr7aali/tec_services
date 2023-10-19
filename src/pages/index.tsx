@@ -6,6 +6,7 @@ import SideDrawer from "@/components/ui/SideDrawer";
 
 import { IService } from "@/interface/type";
 import { useGetServiceQuery } from "@/redux/api/serviceApi";
+import { getUserInfo } from "@/service/auth.service";
 
 import { useState, useEffect } from "react";
 
@@ -14,7 +15,7 @@ const HomePage = () => {
   const [DrawerData, setDrawerData] = useState([]);
   const { data, error, isLoading } = useGetServiceQuery(undefined);
 
-
+  
   
 
   return (

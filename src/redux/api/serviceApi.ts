@@ -28,11 +28,19 @@ const extendedApi = baseApi.injectEndpoints({
                 method: 'GET',   // Specify the HTTP method (GET, POST, etc.)
                 // Add any other necessary properties here
             }),
-            
         }),
-      
+
+        bookingService: build.mutation({
+            query: (bookingServiceData) => ({
+                url: "/booking/create",                
+                method: "POST",
+                data: bookingServiceData
+            }),
+            // invalidatesTags: ["user"]
+        }),
+
     }),
-    
+
 });
 
-export const { useGetServiceQuery } = extendedApi;
+export const { useGetServiceQuery,useBookingServiceMutation } = extendedApi;

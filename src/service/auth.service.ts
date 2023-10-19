@@ -1,17 +1,21 @@
 import jwtDecode from 'jwt-decode';
 import { getFromLocalStorage, setToLocalStorage } from "@/utlis/local-storage"
+import { IUser } from '@/interface/type';
 
 export const storeUserInfo = (accessToken: string) => {
     setToLocalStorage('accessToken', accessToken);
 }
 
-export const getUserInfo = () => {
+export const getUserInfo = (): Partial<IUser> => {
     const authToken = getFromLocalStorage('accessToken')
     if (authToken) {
         const decodedData = jwtDecode(authToken);
-        return decodedData;
+        return decodedData as Partial<IUser>;
     }
-    return ""
+    return {
+        user_id: undefined,
+        role: undefined
+    }
 }
 
 
