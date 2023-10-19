@@ -23,7 +23,7 @@ export type IResponseType<T> = {
 
 export type IUser = {
   user_id: string;
-
+  email        :string;
   password: string;
   role: string;
   first_name: string;

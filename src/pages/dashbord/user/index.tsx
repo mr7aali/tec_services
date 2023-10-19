@@ -4,7 +4,7 @@ import DashbordLayouts from "@/components/Layouts/DashbordLayouts";
 const UserDashBoarPage = () => {
   return (
     <div>
-      <h1>User dash board</h1>
+      <h1>User dash bodard</h1>
     </div>
   );
 };

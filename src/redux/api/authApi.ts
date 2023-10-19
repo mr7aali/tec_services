@@ -20,8 +20,19 @@ export const extendedApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"]
     }),
+    getUser: build.query({
+      query: (id) => ({
+        url: `/user/${id}`, // Provide the correct URL
+        method: 'GET',   // Specify the HTTP method (GET, POST, etc.)
+        // Add any other necessary properties here
+      }),
+    }),
 
   }),
 })
 
-export const { useUserLoginMutation, useUserSignUpMutation } = extendedApi;
+export const {
+  useUserLoginMutation,
+  useUserSignUpMutation,
+  useGetUserQuery
+} = extendedApi;
