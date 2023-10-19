@@ -8,6 +8,8 @@ import { TotalPrice } from "./utils/utils";
 import { getUserInfo } from "@/service/auth.service";
 import { useBookingServiceMutation } from "@/redux/api/serviceApi";
 import { FileAddOutlined } from "@ant-design/icons";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 export default function SideDrawer({
   DrawerData,
@@ -39,16 +41,20 @@ export default function SideDrawer({
     };
   //!  ---------------------------------------------------//!
   const [bookingService] = useBookingServiceMutation();
-
+  const router = useRouter();
   const createBooking = async () => {
     const bookingServicesIDs = DrawerData.map((s) => s.service_id);
-
     const resData = await bookingService({
       user_id: user.user_id,
       bookingServicesIDs,
     }).unwrap();
 
     console.log(resData);
+    if (resData.success) {
+      toast.success("Booking successfully!");
+      setDrawerData([]);
+      router.push("/");
+    }
   };
   const subTotal = TotalPrice(DrawerData);
   const Delivary_Charge = DrawerData.length ? 60 : 0;
@@ -125,10 +131,8 @@ export default function SideDrawer({
               <p className="text-[#000] mt-6 ml-5 text-[25px]">Shopping Bag</p>
 
               <div className="my-auto h-[100%]">
-               
                 {cartContaint}
 
-               
                 {emptyContaint}
               </div>
 
@@ -148,7 +152,7 @@ export default function SideDrawer({
                   <p className="font-medium">Total</p>
                   <p className="font-medium">${subTotal + Delivary_Charge}</p>
                 </div>
-               
+
                 <div
                   onClick={() => createBooking()}
                   className="cursor-pointer bg-[#1 3AFF0] mt-5 p-3 text-lg mx-3"
