@@ -29,6 +29,13 @@ const extendedApi = baseApi.injectEndpoints({
                 // Add any other necessary properties here
             }),
         }),
+        getBooking: build.query({
+            query: () => ({
+                url: '/service/get', // Provide the correct URL
+                method: 'GET',   // Specify the HTTP method (GET, POST, etc.)
+                // Add any other necessary properties here
+            }),
+        }),
 
         bookingService: build.mutation({
             query: (bookingServiceData) => ({

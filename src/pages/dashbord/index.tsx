@@ -2,11 +2,12 @@ import DashbordLayouts from "@/components/Layouts/DashbordLayouts";
 import HeadTag from "@/components/sheared/utlis/HeaderTag";
 import { IUser } from "@/interface/type";
 import { useGetUserQuery } from "@/redux/api/authApi";
-import { getUserInfo } from "@/service/auth.service";
+import { getUserInfo, logOut } from "@/service/auth.service";
+import { useRouter } from "next/router";
 
 const DashbordPage = () => {
   const user = getUserInfo();
-
+  const router = useRouter();
   const { data, isError, isLoading } = useGetUserQuery(user.user_id);
 
   // const profileUser: IUser = ;
@@ -58,7 +59,13 @@ const DashbordPage = () => {
                   <button className="text-white cursor-pointer py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     Update
                   </button>
-                  <button className="text-white cursor-pointer py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  <button
+                    onClick={() => {
+                      logOut();
+                      router.push("/auth/login");
+                    }}
+                    className="text-white cursor-pointer py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                  >
                     Log Out
                   </button>
                 </div>

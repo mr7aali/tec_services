@@ -40,7 +40,7 @@ const LoginPage = () => {
       const isLogged = isLoggedIn();
 
       if (isLogged) {
-        router.push("/");
+        router.push("/dashbord");
       }
     } catch (error) {}
   };

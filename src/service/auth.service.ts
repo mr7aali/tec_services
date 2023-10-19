@@ -1,6 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import { getFromLocalStorage, setToLocalStorage } from "@/utlis/local-storage"
 import { IUser } from '@/interface/type';
+import { loadComponents } from 'next/dist/server/load-components';
 
 export const storeUserInfo = (accessToken: string) => {
     setToLocalStorage('accessToken', accessToken);
@@ -26,4 +27,9 @@ export const isLoggedIn = () => {
         return false;
     }
     return !!authToken;
+}
+
+
+export const logOut=()=>{
+    return localStorage.removeItem("accessToken");
 }
